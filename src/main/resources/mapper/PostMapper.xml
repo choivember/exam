@@ -1,0 +1,25 @@
+<mapper namespace="your.package.name.mapper.PostMapper">
+    <select id="findAll" resultType="your.package.name.model.Post">
+        SELECT * FROM post
+        LIMIT #{offset}, #{size}
+    </select>
+
+    <select id="findById" resultType="your.package.name.model.Post">
+        SELECT * FROM post WHERE id = #{id}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO post (title, content, createdAt)
+        VALUES (#{title}, #{content}, #{createdAt})
+    </insert>
+
+    <update id="update">
+        UPDATE post
+        SET title = #{title}, content = #{content}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM post WHERE id = #{id}
+    </delete>
+</mapper>
